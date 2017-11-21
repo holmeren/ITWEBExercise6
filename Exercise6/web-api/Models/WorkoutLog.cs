@@ -7,7 +7,12 @@ namespace web_api.Models
 {
     public class WorkoutLog
     {
-        public long Id { get; set; }
+        public WorkoutLog()
+        {
+            Exercises = new List<Exercise>();
+        }
+
+        public long WorkoutLogId { get; set; }
         public string Date { get; set; }
         public ICollection<Exercise> Exercises { get; protected set; }
     }

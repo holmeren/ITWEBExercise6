@@ -7,7 +7,7 @@ namespace web_api.Models
 {
     public class Exercise
     {
-        public long Id { get; set; }
+        public long ExerciseId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Sets { get; set; }

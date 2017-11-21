@@ -36,7 +36,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var exercise = await _context.Exercise.SingleOrDefaultAsync(m => m.Id == id);
+            var exercise = await _context.Exercise.SingleOrDefaultAsync(m => m.ExerciseId == id);
 
             if (exercise == null)
             {
@@ -55,7 +55,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != exercise.Id)
+            if (id != exercise.ExerciseId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace web_api.Controllers
             _context.Exercise.Add(exercise);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetExercise", new { id = exercise.Id }, exercise);
+            return CreatedAtAction("GetExercise", new { id = exercise.ExerciseId }, exercise);
         }
 
         // DELETE: api/Exercises/5
@@ -105,7 +105,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var exercise = await _context.Exercise.SingleOrDefaultAsync(m => m.Id == id);
+            var exercise = await _context.Exercise.SingleOrDefaultAsync(m => m.ExerciseId == id);
             if (exercise == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace web_api.Controllers
 
         private bool ExerciseExists(long id)
         {
-            return _context.Exercise.Any(e => e.Id == id);
+            return _context.Exercise.Any(e => e.ExerciseId == id);
         }
     }
 }

@@ -24,7 +24,8 @@ namespace web_api.Controllers
         [HttpGet]
         public IEnumerable<Workout> GetWorkout()
         {
-            return _context.Workout;
+            var workout = _context.Workout;
+            return workout;
         }
 
         // GET: api/Workouts/5
@@ -36,7 +37,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var workout = await _context.Workout.SingleOrDefaultAsync(m => m.Id == id);
+            var workout = await _context.Workout.SingleOrDefaultAsync(m => m.WorkoutId == id);
 
             if (workout == null)
             {
@@ -55,7 +56,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != workout.Id)
+            if (id != workout.WorkoutId)
             {
                 return BadRequest();
             }
@@ -93,7 +94,7 @@ namespace web_api.Controllers
             _context.Workout.Add(workout);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWorkout", new { id = workout.Id }, workout);
+            return CreatedAtAction("GetWorkout", new { id = workout.WorkoutId }, workout);
         }
 
         // DELETE: api/Workouts/5
@@ -105,7 +106,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var workout = await _context.Workout.SingleOrDefaultAsync(m => m.Id == id);
+            var workout = await _context.Workout.SingleOrDefaultAsync(m => m.WorkoutId == id);
             if (workout == null)
             {
                 return NotFound();
@@ -119,7 +120,7 @@ namespace web_api.Controllers
 
         private bool WorkoutExists(long id)
         {
-            return _context.Workout.Any(e => e.Id == id);
+            return _context.Workout.Any(e => e.WorkoutId == id);
         }
     }
 }

@@ -21,5 +21,14 @@ namespace web_api.Models
         public DbSet<web_api.Models.WorkoutLog> WorkoutLog { get; set; }
 
         public DbSet<web_api.Models.User> User { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           
+
+            modelBuilder.Entity<Workout>().HasMany(e => e.Exercises);
+
+           
+        }
     }
 }

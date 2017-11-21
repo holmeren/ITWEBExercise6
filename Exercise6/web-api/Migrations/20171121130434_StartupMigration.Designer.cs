@@ -11,7 +11,7 @@ using web_api.Models;
 namespace web_api.Migrations
 {
     [DbContext(typeof(web_apiContext))]
-    [Migration("20171121123408_StartupMigration")]
+    [Migration("20171121130434_StartupMigration")]
     partial class StartupMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace web_api.Migrations
 
             modelBuilder.Entity("web_api.Models.Exercise", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("ExerciseId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
@@ -38,7 +38,7 @@ namespace web_api.Migrations
 
                     b.Property<long?>("WorkoutLogId");
 
-                    b.HasKey("Id");
+                    b.HasKey("ExerciseId");
 
                     b.HasIndex("WorkoutId");
 
@@ -49,7 +49,7 @@ namespace web_api.Migrations
 
             modelBuilder.Entity("web_api.Models.User", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("UserId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email");
@@ -58,31 +58,31 @@ namespace web_api.Migrations
 
                     b.Property<string>("Password");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
                 });
 
             modelBuilder.Entity("web_api.Models.Workout", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("WorkoutId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
 
-                    b.HasKey("Id");
+                    b.HasKey("WorkoutId");
 
                     b.ToTable("Workout");
                 });
 
             modelBuilder.Entity("web_api.Models.WorkoutLog", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("WorkoutLogId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Date");
 
-                    b.HasKey("Id");
+                    b.HasKey("WorkoutLogId");
 
                     b.ToTable("WorkoutLog");
                 });

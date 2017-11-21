@@ -36,7 +36,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var workoutLog = await _context.WorkoutLog.SingleOrDefaultAsync(m => m.Id == id);
+            var workoutLog = await _context.WorkoutLog.SingleOrDefaultAsync(m => m.WorkoutLogId == id);
 
             if (workoutLog == null)
             {
@@ -55,7 +55,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != workoutLog.Id)
+            if (id != workoutLog.WorkoutLogId)
             {
                 return BadRequest();
             }
@@ -93,7 +93,7 @@ namespace web_api.Controllers
             _context.WorkoutLog.Add(workoutLog);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetWorkoutLog", new { id = workoutLog.Id }, workoutLog);
+            return CreatedAtAction("GetWorkoutLog", new { id = workoutLog.WorkoutLogId }, workoutLog);
         }
 
         // DELETE: api/WorkoutLogs/5
@@ -105,7 +105,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var workoutLog = await _context.WorkoutLog.SingleOrDefaultAsync(m => m.Id == id);
+            var workoutLog = await _context.WorkoutLog.SingleOrDefaultAsync(m => m.WorkoutLogId == id);
             if (workoutLog == null)
             {
                 return NotFound();
@@ -119,7 +119,7 @@ namespace web_api.Controllers
 
         private bool WorkoutLogExists(long id)
         {
-            return _context.WorkoutLog.Any(e => e.Id == id);
+            return _context.WorkoutLog.Any(e => e.WorkoutLogId == id);
         }
     }
 }
