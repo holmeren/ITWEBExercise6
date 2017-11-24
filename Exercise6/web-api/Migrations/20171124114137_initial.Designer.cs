@@ -12,9 +12,10 @@ using web_api.Models;
 namespace web_api.Migrations
 {
     [DbContext(typeof(web_apiContext))]
-    partial class web_apiContextModelSnapshot : ModelSnapshot
+    [Migration("20171124114137_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

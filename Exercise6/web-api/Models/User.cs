@@ -8,9 +8,6 @@ namespace web_api.Models
 {
     public class User : IdentityUser
     {
-        public long UserId { get; set; }
-        public string Name { get; set; }
-        public override string Email { get; set; }
-        public string Password { get; set; }
+    
     }
 }

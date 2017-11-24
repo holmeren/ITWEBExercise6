@@ -26,7 +26,7 @@ namespace web_api.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            
-
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Workout>().HasMany(e => e.Exercises);
 
            

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,7 @@ namespace web_api.Controllers
 
         // PUT: api/Workouts/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutWorkout([FromRoute] long id, [FromBody] Workout workout)
         {
             if (!ModelState.IsValid)
@@ -84,6 +86,7 @@ namespace web_api.Controllers
 
         // POST: api/Workouts
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PostWorkout([FromBody] Workout workout)
         {
             if (!ModelState.IsValid)
@@ -99,6 +102,7 @@ namespace web_api.Controllers
 
         // DELETE: api/Workouts/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteWorkout([FromRoute] long id)
         {
             if (!ModelState.IsValid)
