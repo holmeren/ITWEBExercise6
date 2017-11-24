@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using web_api.Models;
 
 namespace web_api.Models
 {
-    public class web_apiContext : DbContext
+    public class web_apiContext : IdentityDbContext
     {
         public web_apiContext (DbContextOptions<web_apiContext> options)
             : base(options)
