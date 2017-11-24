@@ -24,7 +24,7 @@ namespace web_api.Controllers
         [HttpGet]
         public IEnumerable<WorkoutLog> GetWorkoutLog()
         {
-            return _context.WorkoutLog;
+            return _context.WorkoutLog.Include(b => b.Exercises).AsNoTracking().ToList();
         }
 
         // GET: api/WorkoutLogs/5
@@ -36,7 +36,7 @@ namespace web_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var workoutLog = await _context.WorkoutLog.SingleOrDefaultAsync(m => m.WorkoutLogId == id);
+            var workoutLog = await _context.WorkoutLog.Include(b => b.Exercises).SingleOrDefaultAsync(m => m.WorkoutLogId == id);
 
             if (workoutLog == null)
             {
