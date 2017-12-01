@@ -1,0 +1,34 @@
+<h1>All workout programs</h1>
+<button type="button" class="btn btn-primary" [routerLink]="['edit']">Create new workout</button>
+<h3 *ngIf="workouts.length < 1">You currently have no workout programs</h3>
+
+<div class="container">
+  <div *ngFor="let workout of workouts; let i = index">
+    <div class="card">
+          <h4>{{workout.name}}</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Exercise</th>
+                <th>Description</th>
+                <th>Sets</th>
+                <th>Reps/time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exercise of workout.exercises; let j = index">
+                <td>{{workout.exercises[j].name}}</td>
+                <td>{{workout.exercises[j].description}}</td>
+                <td>{{workout.exercises[j].sets}}</td>
+                <td>{{workout.exercises[j].reps}}</td>
+              </tr>
+              <!-- <tr>
+                <button class="btn btn-primary" [routerLink]="['edit', i]">Edit</button>
+              </tr> -->
+            </tbody>
+          </table>
+    </div>
+  </div>
+
+
+</div>

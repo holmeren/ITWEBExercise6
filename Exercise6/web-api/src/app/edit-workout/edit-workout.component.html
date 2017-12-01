@@ -1,0 +1,14 @@
+<div class="container">
+    <form [formGroup]="workoutForm">
+      <h3 for="name">Title</h3>
+      <input class="form-control" formControlName="name"/>
+      <div class="mt-5"></div>
+      <app-exercise-list
+        [workoutForm]="workoutForm" 
+        [exercises]="workout.exercises">        
+      </app-exercise-list>
+      <button class="btn btn-primary" type="submit" [disabled]="!workoutForm.valid" (click)="onSubmit()">
+        Save workout
+      </button>
+    </form>
+</div>
