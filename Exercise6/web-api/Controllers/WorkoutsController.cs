@@ -50,7 +50,6 @@ namespace web_api.Controllers
 
         // PUT: api/Workouts/5
         [HttpPut("{id}")]
-        [Authorize]
         public async Task<IActionResult> PutWorkout([FromRoute] long id, [FromBody] Workout workout)
         {
             if (!ModelState.IsValid)
@@ -86,7 +85,7 @@ namespace web_api.Controllers
 
         // POST: api/Workouts
         [HttpPost]
-        [Authorize]
+        [Route("createWorkout")]
         public async Task<IActionResult> PostWorkout([FromBody] Workout workout)
         {
             if (!ModelState.IsValid)
@@ -102,7 +101,6 @@ namespace web_api.Controllers
 
         // DELETE: api/Workouts/5
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteWorkout([FromRoute] long id)
         {
             if (!ModelState.IsValid)

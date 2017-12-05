@@ -83,6 +83,7 @@ namespace web_api.Controllers
 
         // POST: api/WorkoutLogs
         [HttpPost]
+        [Route("createWorkoutLog")]
         public async Task<IActionResult> PostWorkoutLog([FromBody] WorkoutLog workoutLog)
         {
             if (!ModelState.IsValid)

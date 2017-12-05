@@ -14,7 +14,7 @@ export class WorkoutListComponent implements OnInit {
 
   constructor(private dbService: DbService) {
     this.dbService.getAllWorkouts().subscribe(data => {
-      this.workouts = data.workouts
+      this.workouts = data
     })
 
     // Fetch data from server

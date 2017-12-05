@@ -12,7 +12,7 @@ export class WorkoutLogListComponent implements OnInit {
 
   constructor(private dbService: DbService) {
     dbService.getAllWorkoutLogs().subscribe(data => {
-      this.workoutLogs = data.workoutLogs
+      this.workoutLogs = data
     })
   }
 

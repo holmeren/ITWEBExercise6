@@ -37,7 +37,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     const url = `${this.dbService.baseUrl}/Users/register/`;
     // Shoud be type AuthResponse
     this.http.post<any>(url, user).subscribe(data => {
-      this.setToken(data.token);
+      this.setToken(data);
       return true;
     },
   (err: HttpErrorResponse) => {
@@ -55,7 +55,7 @@ export class AuthInterceptorService implements HttpInterceptor {
   public login(user: User) {
     const url = `${this.dbService.baseUrl}/Users/login`;
     this.http.post<any>(url, user).subscribe(data => {
-      this.setToken(data.token);
+      this.setToken(data);
       return true;
     },
     (err: HttpErrorResponse) => {
